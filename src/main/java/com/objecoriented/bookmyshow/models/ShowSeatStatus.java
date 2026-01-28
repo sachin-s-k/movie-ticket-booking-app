@@ -1,4 +1,6 @@
 package com.objecoriented.bookmyshow.models;
 
-public class ShowSeatStatus {
+public enum ShowSeatStatus {
+    AVAILABLE,
+    BOOKED
 }

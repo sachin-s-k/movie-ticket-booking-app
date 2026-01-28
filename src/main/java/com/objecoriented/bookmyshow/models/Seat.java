@@ -1,4 +1,11 @@
 package com.objecoriented.bookmyshow.models;
 
-public class Seat {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Seat extends BaseModel {
+
+    private int seatNumber;
+
+    private SeatType seatType;
 }
