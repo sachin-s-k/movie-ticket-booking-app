@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Ticket extends BaseModel {
     @ManyToOne
-    private User user;
+    private Userss user;
     private double amount;
     @ManyToMany
     private  List<ShowSeat> showSeats;
