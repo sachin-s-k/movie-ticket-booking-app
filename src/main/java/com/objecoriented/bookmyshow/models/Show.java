@@ -18,9 +18,9 @@ public class Show extends BaseModel{
     @Enumerated(EnumType.STRING)
    private List<ShowFeature> showFeatureList;
     @Enumerated(EnumType.STRING)
-   private  Language language;
-   @OneToMany(mappedBy="show")
-   private List<ShowSeat> showSeatList;
+    private  Language language;
+    @OneToMany(mappedBy="show")
+    private List<ShowSeat> showSeats;
    @OneToMany
    List<ShowSeatType> showSeatTypeList;
 }

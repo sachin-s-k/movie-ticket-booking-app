@@ -1,11 +1,9 @@
 package com.objecoriented.bookmyshow.models;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-public class ShowSeat {
+@Entity
+public class ShowSeat  extends BaseModel{
     @ManyToOne
     Show show ;
     @ManyToOne

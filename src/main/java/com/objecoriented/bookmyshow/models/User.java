@@ -1,6 +1,9 @@
 package com.objecoriented.bookmyshow.models;
 
-public class User {
+import jakarta.persistence.Entity;
+
+@Entity
+public class User extends BaseModel {
     String name;
 
 }

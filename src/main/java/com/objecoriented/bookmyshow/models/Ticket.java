@@ -1,28 +1,22 @@
 package com.objecoriented.bookmyshow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Ticket extends BaseModel {
     @ManyToOne
     private User user;
-
     private double amount;
-    @OneToMany
-    /**
-     * Ticket: showseats
-     * 1 : m
-     *  m : 1
-     */
-   private  List<ShowSeat> showseats;
-   @ManyToOne
-  private   Show show;
-
-    private Payment payment;
-   private boolean userBooked
+    @ManyToMany
+    private  List<ShowSeat> showSeats;
+    @ManyToOne
+    private   Show show;
+    @Enumerated(EnumType.STRING)
+    private TicketStatus ticketStatus;
+    private Date dateOfBooking;
+    private boolean userBooked;
 
 }
