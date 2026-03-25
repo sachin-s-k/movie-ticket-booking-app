@@ -8,9 +8,9 @@ import java.util.List;
 public class Theatre extends BaseModel{
     String name;
     @OneToMany(mappedBy="theatre")
-   private  List<Auditorium> auditoriums;
+    private  List<Auditorium> auditoriums;
     @OneToMany
-     private List<Show> upcomingShows;
+    private List<Show> upcomingShows;
     private String address;
 
 

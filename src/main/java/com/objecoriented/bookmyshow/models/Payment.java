@@ -12,8 +12,14 @@ public class Payment extends BaseModel{
     private String referenceId;
     @ManyToOne
     private Ticket ticket;
-    private Date  dateOfPayment;
+    private Date  timeOfPayment;
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 
+    private double amount;
+
+    private PaymentMethod paymentMethod;
+
 }
+
+// 1 : 1,  M <--1

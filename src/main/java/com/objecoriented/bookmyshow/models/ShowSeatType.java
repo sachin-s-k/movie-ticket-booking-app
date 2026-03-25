@@ -15,9 +15,9 @@ import jakarta.persistence.ManyToOne;
  */
 @Entity
 public class ShowSeatType extends BaseModel{
-@ManyToOne
+  @ManyToOne
   private  Show show;
- @Enumerated(EnumType.STRING)
+  @Enumerated(EnumType.STRING)
   private   SeatType seatType;
   private double price;
 }
