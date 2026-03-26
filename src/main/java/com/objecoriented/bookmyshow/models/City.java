@@ -1,14 +1,25 @@
 package com.objecoriented.bookmyshow.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class City  extends BaseModel{
     private String name;
     private String imageUrl;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private  List<Theatre> theatreList;
+
+
 }
