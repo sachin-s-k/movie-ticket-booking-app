@@ -30,6 +30,7 @@ private CityController cityController;
 //		userController.createUser(user);
 		 cityController.createCity("Kochi","https://imageUrl");
 		 theatreController.createTheatre("PVR", "Edappally",1L);
+		 theatreController.addAuditorium("A1", 120,1L);
 
 	}
 }
