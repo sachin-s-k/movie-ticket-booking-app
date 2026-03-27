@@ -23,8 +23,8 @@ public class Show extends BaseModel{
    private List<ShowFeature> showFeatureList;
     @Enumerated(EnumType.STRING)
     private  Language language;
-    @OneToMany(mappedBy="show")
+    @OneToMany(mappedBy="show",cascade = CascadeType.ALL)
     private List<ShowSeat> showSeats;
-   @OneToMany
+   @OneToMany(cascade = CascadeType.ALL)
    List<ShowSeatType> showSeatTypeList;
 }
