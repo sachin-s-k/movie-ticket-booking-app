@@ -11,6 +11,8 @@ import com.objecoriented.bookmyshow.repositories.TicketRepository;
 import com.objecoriented.bookmyshow.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -23,6 +25,8 @@ public class TicketService {
     private final ShowRepository showRepository;
     private final ShowseatRepository showseatRepository;
     private final UserRepository userRepository;
+
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public Ticket bookTicket(Long showId, List<Long> seatIds,Long userId){
 
       var showSeats= showseatRepository.findAllById(seatIds);
