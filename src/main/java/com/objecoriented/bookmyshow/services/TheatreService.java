@@ -64,4 +64,7 @@ return  savedTheatre;
         auditoriumRepository.save(auditorium);
 
     }
+
+    public static class TickerService {
+    }
 }

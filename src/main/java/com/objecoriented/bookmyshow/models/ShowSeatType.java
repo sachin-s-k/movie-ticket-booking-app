@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -14,6 +16,8 @@ import jakarta.persistence.ManyToOne;
  * M : 1
  */
 @Entity
+@Getter
+@Setter
 public class ShowSeatType extends BaseModel{
   @ManyToOne
   private  Show show;
