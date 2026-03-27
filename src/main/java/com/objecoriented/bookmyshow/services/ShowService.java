@@ -22,10 +22,12 @@ public class ShowService {
     public Show addShow(Long auditoriumId, Date startTime,
                         Date endTime,
                         Long movieId,
-                        Map<SetType,Integer> seatPricing,
+                        Map<SeatType,Integer> seatPricing,
                         Language language){
 
         var auditorium= auditoriumRepository.findById(auditoriumId).orElse(null);
+        System.out.println(auditorium+"+++++++++");
+        System.out.println(auditorium.getSeats()+"==========>");
         var show = new Show();
         show.setAuditorium(auditorium);
         show.setLanguage(language);
@@ -37,7 +39,11 @@ public class ShowService {
 
              var showSeatType = new ShowSeatType();
              showSeatType.setShow(savedShow);
-             showSeatType.setPrice(seatPricing.get(seat.getSeatType()));
+            SeatType key = seat.getSeatType();
+            System.out.println(key+"++"+seat);
+            Integer value = seatPricing.get(key); // get price
+
+            showSeatType.setPrice(value);
              showSeatTypeList.add(showSeatType);
 
         }

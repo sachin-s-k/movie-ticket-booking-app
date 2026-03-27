@@ -1,6 +1,7 @@
 package com.objecoriented.bookmyshow.controllers;
 
 import com.objecoriented.bookmyshow.models.Language;
+import com.objecoriented.bookmyshow.models.SeatType;
 import com.objecoriented.bookmyshow.models.Show;
 import com.objecoriented.bookmyshow.services.ShowService;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,7 @@ public class ShowController {
     public Show addShow(Long auditoriumId, Date startTime,
                         Date endTime,
                         Long movieId,
-                        Map<SetType,Integer> seatPricing,
+                        Map<SeatType, Integer> seatPricing,
                         Language language
                         ){
         return showService.addShow(auditoriumId,startTime,endTime, movieId, seatPricing,language);

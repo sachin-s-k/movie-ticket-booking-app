@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Auditorium extends BaseModel{
-   @OneToMany
+   @OneToMany(fetch = FetchType.EAGER)
    private List<Seat> seats;
    private String  name;
 @ElementCollection

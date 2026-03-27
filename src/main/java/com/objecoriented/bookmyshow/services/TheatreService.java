@@ -49,6 +49,7 @@ return  savedTheatre;
     public void addSeat(Long auditoriumId, Map<SeatType, Integer> seatCount){
 
        var auditorium= auditoriumRepository.findById(auditoriumId).orElse(null);
+        System.out.println(auditorium+"====>");
         List<Seat> seats=new ArrayList<>();
         for(Map.Entry<SeatType, Integer> entry: seatCount.entrySet()){
           for(int i=0;i<entry.getValue();i++){
@@ -56,6 +57,7 @@ return  savedTheatre;
 
               Seat seat= new Seat();
               seat.setSeatNumber(entry.getKey().toString()+Integer.toString(i+1));
+              seat.setSeatType(entry.getKey());
               seats.add(seat);
           }
         }
@@ -63,8 +65,5 @@ return  savedTheatre;
         auditorium.setSeats(savedSeats);
         auditoriumRepository.save(auditorium);
 
-    }
-
-    public static class TickerService {
     }
 }
