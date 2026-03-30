@@ -50,8 +50,6 @@ Below is the high-level class diagram of the system.
 
 ![Class Diagram](docs/class-diagram.png)
 
-*(Place your diagram inside a folder called `docs` in your repository)*
-
 ---
 
 # ⚙️ Booking Flow
