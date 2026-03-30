@@ -50,6 +50,7 @@ Below is the high-level class diagram of the system.
 
 ![Class Diagram](docs/class-diagram.png)
 
+---
 # ⚙️ Booking Flow
 
 1. User selects a **movie show**
