@@ -72,19 +72,30 @@ The booking operation is wrapped inside a **transaction** using Spring's transac
 Example:
 
 ```java
-@Transactional
-public Booking createBooking(Long showId, List<Long> seatIds) {
+@Transactional(isolation = Isolation.SERIALIZABLE)
+    public Ticket bookTicket(Long showId, List<Long> seatIds,Long userId){
 
-    List<Seat> seats = seatRepository.findAllById(seatIds);
+      var showSeats= showseatRepository.findAllById(seatIds);
+      for(ShowSeat showSeat: showSeats){
+          if(!showSeat.getShowSeatStatus().equals(ShowSeatStatus.AVAILABLE) ){
 
-    for (Seat seat : seats) {
-        if (seat.isBooked()) {
-            throw new RuntimeException("Seat already booked");
+              throw new ShowSeatNotAvailableException("ShowSeat ID: " +
+                    showSeat.getId() + " not available.");
+          }
+      }
+        for (ShowSeat showSeat: showSeats) {
+            showSeat.setShowSeatStatus(ShowSeatStatus.LOCKED);
+            showseatRepository.save(showSeat);
         }
+        var show= showRepository.findById(showId).orElse(null);
+        var user= userRepository.findById(userId).orElse(null);
+        Ticket ticket = new Ticket();
+        ticket.setShow(show);
+        ticket.setShowSeats(showSeats);
+        ticket.setUser(user);
+        ticket.setTicketStatus(TicketStatus.PENDING);
+        ticket.setDateOfBooking(new Date());
+        var savedTicket= ticketRepository.save(ticket);
+        return  savedTicket;
+
     }
-
-    Booking booking = new Booking();
-    booking.setSeats(seats);
-
-    return bookingRepository.save(booking);
-}
